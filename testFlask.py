@@ -1,6 +1,26 @@
 from flask import Flask
+from flask import redirect
+from flask import url_for
 #
 app = Flask(__name__)
+
+
+@app.route('/admin')
+def hello_admin():
+    return 'HEllO ADMIN'
+
+
+@app.route('/guest/<guest>')
+def hello_guest(guest):
+    return 'HEllO %s as Guest' % guest
+
+
+@app.route('/user/<name>')
+def hello_user(name):
+    if name == 'admin':
+        return redirect(url_for('hello_admin'))
+    else:
+        return redirect(url_for('hello_guest', guest=name))
 
 # route装饰器可以用于将URL绑定到指定的函数
 @app.route('/abc')
