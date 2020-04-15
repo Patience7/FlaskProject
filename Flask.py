@@ -2,9 +2,10 @@ from flask import Flask
 from flask import redirect
 from flask import url_for
 from flask import request
+from flask import Response
 from flask import render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='./static')
 
 
 @app.route('/success/<name>')
@@ -22,9 +23,22 @@ def login():
         return(url_for('success', name=user))
 
 
-@app.route("/", methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
+def student():
+    # return render_template("index.html")
+    return render_template("student.html")
+
+
+@app.route('/result', methods=['GET', 'POST'])
+def result():
+    if request.method == 'GET':
+        result = request.form
+        return render_template('result.html', result=result)
+
+
+@app.route('/cookie', methods=['GET', 'POST'])
 def index():
-    return render_template("index.html")
+    return render_template('index.html')
 
 
 if __name__ == '__main__':

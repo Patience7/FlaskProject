@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HEY</title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="../js/util.js" type="text/javascript"></script>
+</head>
+<script>
+    var Name = getUrl('Name');
+    var Physics = getUrl('Physics');
+    var chemistry = getUrl('chemistry');
+    var Mathematics = getUrl('Mathematics');
+
+    window.onload = function () {
+        $('#Name').val(Name);
+        $('#Physics').val(Physics);
+        $('#chemistry').val(chemistry);
+        $('#Mathematics').val(Mathematics);
+    }
+
+    // alert(Name);
+
+</script>
+
+<body>
+    <label>Name是：</label>
+    <input type="text" id="Name" />
+    <label>Physics是：</label>
+    <input type="text" id="Physics" />
+    <label>chemistry是：</label>
+    <input type="text" id="chemistry" />
+    <label>Mathematics是：</label>
+    <input type="text" id="Mathematics" />
+</body>
+
+
+
+</html>
